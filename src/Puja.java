@@ -8,6 +8,7 @@ public class Puja {
         this.usuario = usuario;
         this.cantidad = cantidad;
     }
+    
  
     public Usuario getUsuario() {
         return usuario;
