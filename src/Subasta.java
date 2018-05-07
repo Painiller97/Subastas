@@ -13,11 +13,10 @@ public class Subasta {
 
     private int pujaMayor;
 
-    public Subasta(String producto, Usuario propietario, boolean abierta, ArrayList<Puja> listaPujas, int pujaMayor) {
+    public Subasta(String producto, Usuario propietario) {
+        this.producto = producto;
         this.propietario = propietario;
-        this.abierta = abierta;
-        this.listaPujas = listaPujas;
-        this.pujaMayor = pujaMayor;
+        this.pujaMayor = 0;
     }
 
     public String getProducto() {
@@ -40,10 +39,19 @@ public class Subasta {
         return null;
     }
 
-    public void pujar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean pujar(Usuario user, double cantidad) {
+        boolean aceptada=false;
+        if  (    abierta == true &&
+                cantidad <= user.getCredito() &&
+                !this.propietario.equals(user) &&
+                cantidad>this.pujaMayor
+            ) {
+            Puja p = new Puja(user,cantidad);
+            aceptada=true;
+        } 
+        return aceptada;
     }
-
+    
     public void pujar(Usuario user) {
         
         Puja p =new Puja(user,this.getPujaMayor().getCantidad()+1);

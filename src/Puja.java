@@ -2,9 +2,9 @@ public class Puja {
 
     private Usuario usuario;
 
-    private int cantidad;
+    private double cantidad;
 
-    public Puja(Usuario usuario, int cantidad) {
+    public Puja(Usuario usuario, double cantidad) {
         this.usuario = usuario;
         this.cantidad = cantidad;
     }
@@ -13,7 +13,12 @@ public class Puja {
         return usuario.getNombre();
     }
 
-    public int getCantidad() {
+    
+    
+    
+    
+    
+    public double getCantidad() {
         return cantidad;
     }
     
