@@ -12,7 +12,7 @@ public class Puja {
     public String getUsuario() {
         return usuario.getNombre();
     }
-
+    
     
     
     
