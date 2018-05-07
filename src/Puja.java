@@ -8,8 +8,8 @@ public class Puja {
         this.usuario = usuario;
         this.cantidad = cantidad;
     }
-
-    public String getUsuario() {
+ 
+    public Usuario getUsuario() {
         return usuario;
     }
 
