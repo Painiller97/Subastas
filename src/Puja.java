@@ -9,9 +9,8 @@ public class Puja {
         this.cantidad = cantidad;
     }
     
- 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getUsuario() {
+        return usuario.getNombre();
     }
 
     public int getCantidad() {
