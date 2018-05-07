@@ -58,6 +58,15 @@ public class Subasta {
     }
 
     public boolean ejecutar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean ejecutada=false;
+       if (
+             abierta==true &&
+             this.listaPujas.size() > 0
+              ){
+           this.propietario.incrementaCredito(this.pujaMayor);
+           //codigo a medias
+           
+       }
+       return ejecutada;
     }
 }
