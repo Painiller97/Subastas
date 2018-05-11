@@ -24,21 +24,19 @@ public class Usuario {
     public String getNombre() {
         return nombre;
     }
-    
-    public int incrementaCredito(int creditomas){
-      Scanner sc = new Scanner(System.in);
-        System.out.println("¿Cuanto quieres incrementar el crédito?");
-        creditomas = sc.nextInt();
-        credito = credito + creditomas;
-        return credito;
+
+    @Override
+    public String toString() {
+        return nombre;
     }
     
-    public int decrementaCredito(int creditomenos){
-      Scanner sc = new Scanner(System.in);
-        System.out.println("¿Cuanto quieres incrementar el crédito?");
-        creditomenos = sc.nextInt();
-        credito = credito - creditomenos;
-        return credito;
+    
+    public void incrementaCredito(int creditomas){
+        credito += creditomas;
+    }
+    
+    public void decrementaCredito(int creditomenos){
+        credito -= creditomenos;
     }
 
 }

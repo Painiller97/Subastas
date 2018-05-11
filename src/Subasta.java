@@ -16,7 +16,6 @@ public class Subasta {
     public Subasta(String producto, Usuario propietario) {
         this.producto = producto;
         this.propietario = propietario;
-        this.pujaMayor = 0;
         this.listaPujas = new ArrayList<Puja>();
     }
 
@@ -36,9 +35,14 @@ public class Subasta {
         return listaPujas;
     }
 
+    @Override
+    public String toString() {
+        return "Subasta{" + "producto=" + producto + ", propietario=" + propietario + ", abierta=" + abierta + ", listaPujas=" + listaPujas + ", pujaMayor=" + pujaMayor + '}';
+    }
+
     public Puja getPujaMayor() {
         System.out.println(this.listaPujas.size());
-        return this.listaPujas.get(this.listaPujas.size()-1);
+        return this.listaPujas.get(this.listaPujas.size() - 1);
     }
 
     public boolean pujar(Usuario user, double cantidad) {
@@ -51,7 +55,7 @@ public class Subasta {
             this.listaPujas.add(p);
             aceptada = true;
         } else {
-            System.out.println("La puja está cerrada");
+            System.out.println("Puja inválida");
         }
 
         return aceptada;
@@ -59,11 +63,11 @@ public class Subasta {
 
     public void pujar(Usuario user) {
 
-        Puja p; 
+        Puja p;
         if (this.listaPujas.size() == 0) {
             p = new Puja(user, 1);
         } else {
-            p= new Puja(user, this.getPujaMayor().getCantidad()+1);
+            p = new Puja(user, this.getPujaMayor().getCantidad() + 1);
         }
         this.listaPujas.add(p);
 
@@ -75,12 +79,16 @@ public class Subasta {
                 && this.listaPujas.size() > 0) {
             this.propietario.incrementaCredito(this.pujaMayor);
             user.decrementaCredito(this.pujaMayor);
+            System.out.println(user + " ha ganado la puja por " + this.getPujaMayor().getCantidad());
             abierta = false;
+        } else {
+            System.out.println("Puja inválida");
         }
         return ejecutada;
     }
-    public boolean abrirPuja(){
-        if(abierta == false){
+
+    public boolean abrirPuja() {
+        if (abierta == false) {
             abierta = true;
         }
         return abierta;

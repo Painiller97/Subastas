@@ -11,15 +11,15 @@ public class Puja {
     
     public String getUsuario() {
         return usuario.getNombre();
-    }
-    
-    
-    
-    
-    
+    }    
     
     public double getCantidad() {
         return cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return usuario + "ha pujado" + cantidad;
     }
     
 }
