@@ -1,3 +1,6 @@
+
+import java.util.Set;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,7 +23,9 @@ public class Main {
         Usuario user3 = new Usuario("Enrique", 300);
         
         Subasta subasta1 = new Subasta("Teléfono Movil", user1);
+        subasta1.abrirPuja();
         subasta1.pujar(user2, 100);
+        
         System.out.println(subasta1.getPujaMayor());
         subasta1.pujar(user3, 100);
         System.out.println(subasta1.getPujaMayor());
