@@ -47,25 +47,32 @@ public class Subasta {
                 cantidad>this.pujaMayor
             ) {
             Puja p = new Puja(user,cantidad);
+            this.listaPujas.add(p);
             aceptada=true;
         } 
+        else{
+            System.out.println("La puja está cerrada");
+        }
+            
         return aceptada;
     }
     
     public void pujar(Usuario user) {
         
         Puja p =new Puja(user,this.getPujaMayor().getCantidad()+1);
+        this.listaPujas.add(p);
+                
     }
 
-    public boolean ejecutar() {
+    public boolean ejecutar(Usuario user) {
         boolean ejecutada=false;
        if (
              abierta==true &&
              this.listaPujas.size() > 0
               ){
            this.propietario.incrementaCredito(this.pujaMayor);
-           //codigo a medias
-           
+           user.decrementaCredito(this.pujaMayor);
+           abierta = false;
        }
        return ejecutada;
     }
